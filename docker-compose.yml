@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: dockerfile
+    container_name: trychat_frontend
+    ports:
+      - "5173:80"  # El 5173 externo apunta al 80 interno del contenedor nginx
+    networks:
+      - trychatnet
+    restart: unless-stopped
+
+# backend:
+#   build:
+#     context: ./backend
+#     dockerfile: Dockerfile
+#   container_name: trychat_backend
+#   ports:
+#     - "3001:3001"
+#   networks:
+#     - trychatnet
+#   restart: unless-stopped
+
+networks:
+  trychatnet:
+    driver: bridge
