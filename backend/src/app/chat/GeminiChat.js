@@ -1,9 +1,9 @@
 const { getGeminiResponse } = require("../../infrastructura/gemini/gemini")
 
 // Metodo para hacer uso de la Ia(Gemini)
-async function ChatCasoUso(mensaje) {
+async function ChatCasoUso(userMessage) {
     try {
-        const respuesta = await getGeminiResponse(mensaje);
+        const respuesta = await getGeminiResponse(userMessage);
         return respuesta;
     } catch (error) {
         console.error("Error en ChatCasoUso:", error);

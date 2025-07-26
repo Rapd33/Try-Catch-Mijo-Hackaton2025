@@ -7,9 +7,11 @@ const GEMINI_API_URL = process.env.GEMINI_API_URL;
 
 
 
-async function getGeminiResponse(mensaje) {
+async function getGeminiResponse(userMessage) {
 
-const masterPrompt = `Eres un asistente virtual especializado en IngeleanPlus. Utiliza la siguiente información de referencia para responder preguntas sobre la plataforma. Si la pregunta no está relacionada con IngeleanPlus o no encuentras información específica, responde de manera general pero siempre mantén un tono profesional.
+const masterPrompt = `Eres un asistente virtual especializado en IngeleanPlus. 
+Utiliza la siguiente información de referencia para responder preguntas sobre la plataforma.
+ Si la pregunta no está relacionada con IngeleanPlus, responde de manera general como lo haria una IA conversacional siempre mantén un tono profesional.
 
 INFORMACIÓN DE REFERENCIA SOBRE INGELEANPLUS:
 ${JSON.stringify(promptData, null, 2)}
@@ -19,7 +21,12 @@ INSTRUCCIONES:
 - Si es una pregunta general, responde normalmente pero mantén el contexto profesional
 - Siempre sé útil y conciso en tus respuestas
 
-PREGUNTA DEL USUARIO: ${mensaje}`;    
+PREGUNTA DEL USUARIO: ${userMessage}`;
+
+console.log(masterPrompt);
+console.log(userMessage);
+
+
     
   try {
     const url = `${GEMINI_API_URL}?key=${GEMINI_API_KEY}`;
