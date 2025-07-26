@@ -1,6 +1,19 @@
 // src/pages/Llamada.tsx
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import promptData from "../../promt.json"; // Asegúrate de que la ruta sea correcta
+
+const masterPrompt = `Eres un asistente virtual especializado en IngeleanPlus. 
+Utiliza la siguiente información de referencia para responder preguntas sobre la plataforma.
+Si la pregunta no está relacionada con IngeleanPlus, responde de manera general como lo haria una IA conversacional siempre mantén un tono profesional.
+
+INFORMACIÓN DE REFERENCIA SOBRE INGELEANPLUS:
+${JSON.stringify(promptData, null, 2)}
+
+INSTRUCCIONES:
+- Si la pregunta está directamente relacionada con IngeleanPlus, usa la información de referencia
+- Si es una pregunta general, responde normalmente pero mantén el contexto profesional
+- Siempre sé útil y conciso en tus respuestas`;
 
 const Llamada = () => {
   const navigate = useNavigate();
@@ -36,7 +49,7 @@ const Llamada = () => {
             "conversation_config_override": {
               "agent": {
                 "prompt": {
-                  "prompt": "Tu tarea principal es llamar al usuario y preguntarle cómo se siente hoy. Usa un tono cálido y amistoso. Mantén la conversación breve y respetuosa. Si el usuario responde positivamente, puedes decirle que te alegra escucharlo. Si responde negativamente o menciona un problema, escucha con empatía y ofrece acompañarlo o derivarlo a ayuda si es apropiado. Inicia la conversación diciendo: Hola, esta es una llamada personalizada solo para ti. ¿Quieres saber más?. Tu objetivo es generar confianza y cercanía, sin invadir la privacidad del usuario ni insistir demasiado. No intentes vender nada ni recopilar datos personales. Ejemplos de respuestas naturales: - ¿Que edad tengo? - Usted tiene años, señor. - Me alegra escuchar eso. ¡Espero que sigas teniendo un buen día! - Lamento que no estés tan bien. Si necesitas algo, estoy aquí para ayudarte."
+                  "prompt": masterPrompt
                 }
               }
             }
