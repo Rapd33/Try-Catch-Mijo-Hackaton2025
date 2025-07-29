@@ -1,6 +1,7 @@
 // src/pages/Chat.tsx
-import { useState, useRef, useEffect, use } from "react";
+import { useState, useRef, useEffect } from "react";
 import { FiSend } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 type mensaje = {
   id: number;
@@ -94,6 +95,9 @@ const Chat = () => {
     <div className="flex h-screen bg-[#f7f7f8] text-gray-900">
       {/* ASIDE izquierdo estilo ChatGPT */}
       <aside className="w-64 bg-white border-r hidden md:flex flex-col p-4">
+        <Link to="/">
+          <h1 className="text-xl font-bold text-blue-600">Try-Catch-Mijo</h1>
+        </Link>
         <h2 className="text-lg font-semibold mb-4 text-blue-600">Historial</h2>
         <ul className="space-y-2 text-sm text-gray-700">
           <li className="hover:text-blue-600 cursor-pointer">Conversación 1</li>
