@@ -9,7 +9,7 @@ const app = express();
 
 // Configuración de CORS
 const corsOptions = {
-  origin: true, // Permite cualquier origin en desarrollo
+  origin: import.meta.env.FRONTEND_URL, // Permite cualquier origin en desarrollo
   credentials: true,
   optionsSuccessStatus: 200,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
