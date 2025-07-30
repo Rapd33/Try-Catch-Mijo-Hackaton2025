@@ -11,7 +11,7 @@ async function getGeminiResponse(userMessage) {
 
 const masterPrompt = `Eres un asistente virtual especializado en IngeleanPlus. 
 Utiliza la siguiente información de referencia para responder preguntas sobre la plataforma.
- Si la pregunta no está relacionada con IngeleanPlus, responde de manera general como lo haria una IA conversacional siempre mantén un tono profesional.
+Si la pregunta no está relacionada con IngeleanPlus, responde de manera general como lo haria una IA conversacional siempre mantén un tono profesional.
 
 INFORMACIÓN DE REFERENCIA SOBRE INGELEANPLUS:
 ${JSON.stringify(promptData, null, 2)}
