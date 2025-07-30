@@ -9,11 +9,11 @@ const app = express();
 
 // Configuración de CORS
 const corsOptions = {
-  origin: import.meta.env.FRONTEND_URL, // Permite cualquier origin en desarrollo
+  origin: process.env.FRONTEND_URL,
   credentials: true,
   optionsSuccessStatus: 200,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Access-Control-Allow-Origin']
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
 };
 
 app.use(cors(corsOptions));
